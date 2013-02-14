@@ -1,0 +1,45 @@
+<child>
+    <health_id>{{hid}}</health_id>
+    <household_head_id>{{hoh}}</household_head_id>
+    <first_name>{{first_name}}</first_name>
+    <surname>{{last_name}}</surname>
+    <sex>{{gender}}</sex>
+
+    {% ifequal edob 1 %}
+    <dob_known>yes</dob_known>
+    {% else %}
+    <dob_known>no</dob_known>
+    {% endifequal %}
+
+    <months_or_years>months</months_or_years>
+    <age>{{age}}</age>
+    <full_name>{{first_name}} {{last_name}}</full_name>
+    <dob_calc>{{dob}}</dob_calc>
+    <n0:case case_id="{{caseid}}" user_id="{{commcare_id}}" date_modified="{{date_modified}}" xmlns:n0="http://commcarehq.org/case/transaction/v2">
+    <n0:create>
+    <n0:case_name>{{first_name}} {{last_name}}</n0:case_name>
+    <n0:owner_id>{{commcare_id}}</n0:owner_id>
+    <n0:case_type>child</n0:case_type>
+    </n0:create>
+    <n0:update>
+    <n0:external_id>{{hid}}</n0:external_id>
+    <n0:first_name>{{first_name}}</n0:first_name>
+    <n0:surname>{{last_name}}</n0:surname>
+    <n0:age>{{age}}</n0:age>
+    <n0:sex>{{gender}}</n0:sex>
+    <n0:household_head_id>{{hoh}}</n0:household_head_id>
+    <n0:health_id>{{hid}}</n0:health_id>
+    <n0:dob_calc>{{dob}}</n0:dob_calc>
+    <n0:months_or_years>months</n0:months_or_years>
+    </n0:update>
+    </n0:case>
+    <n1:meta xmlns:n1="http://openrosa.org/jr/xforms">
+    <n1:deviceID>358524045238067</n1:deviceID>
+    <n1:timeStart>{{timestart}}</n1:timeStart>
+    <n1:timeEnd>{{timeend}}</n1:timeEnd>
+    <n1:username>{{chw}}</n1:username>
+    <n1:userID>{{commcare_id}}</n1:userID>
+    <n1:instanceID>{{instanceid}}</n1:instanceID>
+    <n2:appVersion xmlns:n2="http://commcarehq.org/xforms">CommCare ODK, version "2.0"(1075). CommCare Version 2.0. Build #1075, built on: May-16-2012</n2:appVersion>
+    </n1:meta>
+</child>

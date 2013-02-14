@@ -1,0 +1,53 @@
+<household>
+    <household_head_health_id>{{hid}}</household_head_health_id>
+    <gps_location />
+    <location>{{location}}</location>
+    <hh_head_first_name>{{first_name}}</hh_head_first_name>
+    <household_head_surname>{{last_name}}</household_head_surname>
+    <gender>{{gender}}</gender>
+    {% ifequal edob 1 %}
+    <dob_known>yes</dob_known>
+    <dob>{{dob}}</dob>
+    {% else %}
+    <dob_known>no</dob_known>
+    <age>{{age}}</age>
+    {% endifequal %}
+    <dob_calc>{{dob}}</dob_calc>
+    <full_name>{{first_name}} {{last_name}}</full_name>
+    <mobile_phone_number/>
+    <n0:case case_id="{{caseid}}" user_id="{{commcare_id}}" date_modified="{{date_modified}}" xmlns:n0="http://commcarehq.org/case/transaction/v2">
+    <n0:create>
+    <n0:case_name>{{first_name}} {{last_name}}</n0:case_name>
+    <n0:owner_id>{{commcare_id}}</n0:owner_id>
+    <n0:case_type>household</n0:case_type>
+    </n0:create>
+    <n0:update>
+    <n0:household_head_surname>{{last_name}}</n0:household_head_surname>
+    <n0:mobile_phone_number/>
+    <n0:gender>{{gender}}</n0:gender>
+    <n0:household_head_health_id>{{hid}}</n0:household_head_health_id>
+    <n0:location>{{location}}</n0:location>
+    <n0:full_name>{{first_name}} {{last_name}}</n0:full_name>
+    
+    {% ifequal edob 1 %}
+    <n0:dob_known>yes</n0:dob_known>
+    <n0:dob>{{dob}}</n0:dob>
+    {% else %}
+        <n0:dob_known>no</n0:dob_known>
+        <n0:age>{{age}}</n0:age>
+    {% endifequal %}
+    
+    <n0:dob_calc>{{dob}}</n0:dob_calc>
+    <n0:hh_head_first_name>{{first_name}}</n0:hh_head_first_name>
+    </n0:update>
+    </n0:case>
+    <n1:meta xmlns:n1="http://openrosa.org/jr/xforms">
+    <n1:deviceID>358524045238067</n1:deviceID>
+    <n1:timeStart>{{timestart}}</n1:timeStart>
+    <n1:timeEnd>{{timeend}}</n1:timeEnd>
+    <n1:username>{{chw}}</n1:username>
+    <n1:userID>{{commcare_id}}</n1:userID>
+    <n1:instanceID>{{instanceid}}</n1:instanceID>
+    <n2:appVersion xmlns:n2="http://commcarehq.org/xforms">CommCare ODK, version "2.0"(1075). CommCare Version 2.0. Build #1075, built on: May-16-2012</n2:appVersion>
+    </n1:meta>
+</household>
