@@ -33,8 +33,10 @@ def transmit_form(form):
         conn.request('POST', up.path, xml_form, headers)
         resp = conn.getresponse()
         responsetext = resp.read()
-        assert resp.status == 201, 'Bad HTTP Response'
-        assert "Thanks for submitting" in responsetext, "Bad response text"
+        if resp.status == 201:
+            print "Bad HTTP Response: %s " % responsetext
+        else:
+            print "Thanks for submitting %s " % responsetext
 
 
 def save_casexmlform(form):
