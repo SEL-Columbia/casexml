@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 # vim: ai ts=4 sts=4 et sw=4 encoding=utf-8
 
-import os
 import sys
 import csv
 
-from django.conf import settings
-settings.configure()
-
 from utils import transmit_form, save_casexmlform, check_file
 
-import const as CONST
 
 #Form Templates
 from forms import CaseXMLInterface
@@ -44,21 +39,21 @@ class Main:
 
     def help(self):
         print (u"------------------------------------------\n"
-                "GENERATE CASEXML USING DATA AND TEMPLATE \n"
-                "------------------------------------------\n"
-                "Contains function to generate Casexml and save or \n"
-                "submit to CommcareHq\n"
-                "To run:\n $ python casexml.py csvfile template "
-                "\n\nOPTIONS:\n-------- \n"
-                "csvfile     A full path of csv file to be exported to"
-                " CommcareHQ ")
+               u"GENERATE CASEXML USING DATA AND TEMPLATE \n"
+               u"------------------------------------------\n"
+               u"Contains function to generate Casexml and save or \n"
+               u"submit to CommcareHq\n"
+               u"To run:\n $ python casexml.py csvfile template "
+               u"\n\nOPTIONS:\n-------- \n"
+               u"csvfile     A full path of csv file to be exported to"
+               u" CommcareHQ ")
 
     def export_csv(self):
         info = {}
         #Check if template exist before
         if not check_file(self.template, "xml"):
             print "Template doesnot exist, or invalid template. Check if " \
-                    "it has a .xml extenion"
+                "it has a .xml extenion"
             return 0
 
         try:
@@ -76,7 +71,8 @@ class Main:
 
             form = CaseXMLInterface(info, self.template)
             save_casexmlform(form)
-            #transmit_form(form)
+            if self.submit:
+                transmit_form(form)
 
 
 if __name__ == '__main__':
