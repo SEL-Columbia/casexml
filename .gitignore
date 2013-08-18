@@ -1,5 +1,8 @@
+*.swp
 *.pyc
 .project
+.ropeproject
+.venv
 *~
 *.db
 build/*
