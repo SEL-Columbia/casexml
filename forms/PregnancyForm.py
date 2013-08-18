@@ -1,8 +1,9 @@
 #!/usr/bin/env python
-# vim: ai ts=4 sts=4 et sw=4 encoding=utf-8
+# vim: ai ts=4 sts=4 et sw=4 fileencoding=utf-8
 # maintainer: katembu
 
-from forms.CaseXMLInterface import *
+from forms.CaseXMLInterface import CaseXMLInterface
+
 
 class PregnancyForm(CaseXMLInterface):
 
@@ -10,5 +11,3 @@ class PregnancyForm(CaseXMLInterface):
 
     template_name = 'pregnancy.xml'
     template_dict = {}
-    
-    
