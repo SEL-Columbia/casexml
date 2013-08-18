@@ -1,4 +1,4 @@
-<child>
+<child xmlns="http://openrosa.org/formdesigner/6a70d62d4412ed9feced252c90d564e9a96c0ae4">
     <health_id>{{hid}}</health_id>
     <household_head_id>{{hoh}}</household_head_id>
     <first_name>{{first_name}}</first_name>

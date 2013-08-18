@@ -1,4 +1,4 @@
-<household>
+<household   xmlns="http://openrosa.org/formdesigner/16fca2d3a5cfbb3acd4c724c83e8549d17b42908" >
     <household_head_health_id>{{hid}}</household_head_health_id>
     <gps_location />
     <location>{{location}}</location>
@@ -17,7 +17,7 @@
     <mobile_phone_number/>
     <n0:case case_id="{{caseid}}" user_id="{{commcare_id}}" date_modified="{{date_modified}}" xmlns:n0="http://commcarehq.org/case/transaction/v2">
     <n0:create>
-    <n0:case_name>{{first_name}} {{last_name}}</n0:case_name>
+    <n0:case_name>{{hid}}</n0:case_name>
     <n0:owner_id>{{commcare_id}}</n0:owner_id>
     <n0:case_type>household</n0:case_type>
     </n0:create>
