@@ -3,10 +3,12 @@
 
 import sys
 import csv
-
 import const as CONST
-from utils import transmit_form, save_casexmlform, check_file
 
+from django.conf import settings
+settings.configure()
+
+from utils import transmit_form, save_casexmlform, check_file
 
 #Form Templates
 from forms import CaseXMLInterface
@@ -74,8 +76,8 @@ class Main:
         #Loop through each row and get data
         for x in data:
             for label, value in zip(header, x):
-                info[label] = value
-
+                info[label] = value.strip()
+            print info
             form = CaseXMLInterface(info, self.template)
             save_casexmlform(form)
             if SUBMIT_CASEXML:
