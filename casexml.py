@@ -22,7 +22,7 @@ class Main:
     def __init__(self):
         ''' Get arguments '''
         args = sys.argv
-        if len(args):
+        if len(args) >= 3:
             try:
                 self.file_name = args[1]
                 self.template = args[2]
