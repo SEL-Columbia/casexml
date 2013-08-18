@@ -2,6 +2,7 @@
 # vim: ai ts=4 sts=4 et sw=4 fileencoding=utf-8
 # maintainer: katembu
 import os
+import codecs
 from urlparse import urlparse
 import httplib
 
@@ -40,12 +41,11 @@ def save_casexmlform(form):
 
     if STORE_FORM:
         print "Saving Form in output folder"
-        f = open("%(path)s/casexml_%(date)s.xml" % {
+        f = codecs.open("%(path)s/casexml_%(date)s.xml" % {
             'path': STORE_LOCATION,
-            'date': datetime.now().strftime("%Y_%m_%d_%H:%M:%S")},
-            'wb', buffering=1)
-
-        f.write(str(xml_form))
+            'date': datetime.now().strftime("%Y_%m_%d_%H-%M-%S.%f")},
+            'wb', encoding='utf-8', buffering=1)
+        f.write(xml_form)
         f.close()
 
 
