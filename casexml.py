@@ -1,9 +1,10 @@
 #!/usr/bin/env python
-# vim: ai ts=4 sts=4 et sw=4 encoding=utf-8
+# vim: ai ts=4 sts=4 et sw=4 fileencoding=utf-8
 
 import sys
 import csv
 
+import const as CONST
 from utils import transmit_form, save_casexmlform, check_file
 
 
@@ -61,6 +62,12 @@ class Main:
         except:
             print "Data doesnt exist"
 
+        try:
+            DOMAIN_URL = CONST.COMMCARE_URL
+            SUBMIT_CASEXML = CONST.SUBMIT_TO_COMMCARE
+        except:
+            SUBMIT_CASEXML = False
+            DOMAIN_URL = u""
         #Remove Header
         header = data.next()
         info = {}
@@ -71,8 +78,8 @@ class Main:
 
             form = CaseXMLInterface(info, self.template)
             save_casexmlform(form)
-            if self.submit:
-                transmit_form(form)
+            if SUBMIT_CASEXML:
+                transmit_form(form, DOMAIN_URL)
 
 
 if __name__ == '__main__':
