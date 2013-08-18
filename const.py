@@ -18,3 +18,7 @@ STORE_FORM = True
 CURRENT_FILE = os.path.abspath(__file__)
 PROJECT_ROOT = os.path.dirname(CURRENT_FILE)
 STORE_LOCATION = os.path.join(PROJECT_ROOT, 'output')
+try:
+    from local_const import *
+except:
+    pass
