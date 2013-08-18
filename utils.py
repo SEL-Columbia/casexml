@@ -28,7 +28,7 @@ def transmit_form(form):
 
         url = DOMAIN_URL
         up = urlparse(url)
-        conn = httplib.HTTPSConnection(up.netloc) if url.startswith("https") \
+	conn = httplib.HTTPSConnection(up.netloc) if url.startswith("https") \
                                         else httplib.HTTPConnection(up.netloc)
         conn.request('POST', up.path, xml_form, headers)
         resp = conn.getresponse()
@@ -37,7 +37,6 @@ def transmit_form(form):
             print "Bad HTTP Response: %s " % responsetext
         else:
             print "Thanks for submitting %s " % responsetext
-
 
 def save_casexmlform(form):
     ''' save templates of casexml '''
