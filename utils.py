@@ -24,7 +24,7 @@ def transmit_form(form, domain_url):
     resp = conn.getresponse()
     responsetext = resp.read()
     if resp.status != 201:
-        print "Bad HTTP Response: %s " % responsetext
+        print "Bad HTTP Response: [%s] %s " % (resp.status, responsetext)
     else:
         print "Thanks for submitting %s " % responsetext
 
