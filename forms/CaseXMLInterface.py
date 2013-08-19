@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # vim: ai ts=4 sts=4 et sw=4 fileencoding=utf-8
 # maintainer: katembu
+import codecs
 
 from datetime import datetime
 
@@ -35,7 +36,7 @@ class CaseXMLInterface(object):
         return set_temp
 
     def load_template(self):
-        fp = open('%(template)s' % {'template': self.template_name})
+        fp = codecs.open('%(template)s' % {'template': self.template_name})
         self.template = Template(fp.read())
         fp.close()
 
