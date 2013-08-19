@@ -73,15 +73,18 @@ class Main:
         #Remove Header
         header = data.next()
         info = {}
+        c = 1
         #Loop through each row and get data
         for x in data:
             for label, value in zip(header, x):
                 info[label] = value.strip()
-            print info
+            print "Processing %d case: %s" % (c, info['hid'])
             form = CaseXMLInterface(info, self.template)
             save_casexmlform(form)
             if SUBMIT_CASEXML:
                 transmit_form(form, DOMAIN_URL)
+            c += 1
+        print "Processed %d cases" % c
 
 
 if __name__ == '__main__':
