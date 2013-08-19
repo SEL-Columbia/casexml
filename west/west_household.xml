@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <household   xmlns="http://openrosa.org/formdesigner/16fca2d3a5cfbb3acd4c724c83e8549d17b42908" >
     <household_head_health_id>{{hid}}</household_head_health_id>
     <gps_location />
