@@ -26,6 +26,9 @@ def transmit_form(form, domain_url):
     responsetext = resp.read()
     if resp.status != 201:
         print "Bad HTTP Response: [%s] %s " % (resp.status, responsetext)
+    if resp.status == 502:
+        print "Retrying ..."
+        transmit_form(form, domain_url)
     else:
         print "Thanks for submitting %s " % responsetext
 
