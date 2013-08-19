@@ -16,6 +16,7 @@ def transmit_form(form, domain_url):
     xml_form = form.render()
     headers = {"Content-type": "text/xml", "Accept": "text/plain"}
 
+    xml_form = xml_form.encode('utf-8')
     url = domain_url
     up = urlparse(url)
     conn = httplib.HTTPSConnection(up.netloc) if url.startswith("https") \
