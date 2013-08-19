@@ -24,13 +24,13 @@ def transmit_form(form, domain_url):
     conn.request('POST', up.path, xml_form, headers)
     resp = conn.getresponse()
     responsetext = resp.read()
-    if resp.status != 201:
-        print "Bad HTTP Response: [%s] %s " % (resp.status, responsetext)
     if resp.status == 502:
         print "Retrying ..."
         transmit_form(form, domain_url)
-    else:
+    elif resp.status == 201:
         print "Thanks for submitting %s " % responsetext
+    else:
+        print "Bad HTTP Response: [%s] %s " % (resp.status, responsetext)
 
 
 def save_casexmlform(form):
