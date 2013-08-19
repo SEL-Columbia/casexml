@@ -23,7 +23,7 @@ def transmit_form(form, domain_url):
     conn.request('POST', up.path, xml_form, headers)
     resp = conn.getresponse()
     responsetext = resp.read()
-    if resp.status == 201:
+    if resp.status != 201:
         print "Bad HTTP Response: %s " % responsetext
     else:
         print "Thanks for submitting %s " % responsetext
